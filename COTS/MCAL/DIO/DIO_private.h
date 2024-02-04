@@ -1,7 +1,7 @@
 /****************************************************************/
 /******* Author    : Mahmoud Abdelraouf Mahmoud *****************/
 /******* Date      : 29 Sep 2023                *****************/
-/******* Version   : 0.2                        *****************/
+/******* Version   : 0.1                        *****************/
 /******* File Name : DIO_private.h              *****************/
 /****************************************************************/
 #ifndef __DIO_PRIVATE_H_
@@ -12,30 +12,30 @@
  * 
  * These macros define the register addresses for PORTA, PORTB, PORTC, and PORTD.
  */
-#define DIO_PORTA_R        *((volatile u8*)0X3B)
-#define DIO_PORTB_R        *((volatile u8*)0X38)
-#define DIO_PORTC_R        *((volatile u8*)0X35)
-#define DIO_PORTD_R        *((volatile u8*)0X32)
+#define DIO_PORTA_R        (*((volatile u8*)0X3B))
+#define DIO_PORTB_R        (*((volatile u8*)0X38))
+#define DIO_PORTC_R        (*((volatile u8*)0X35))
+#define DIO_PORTD_R        (*((volatile u8*)0X32))
 
 /**
  * @brief Macro definitions for DDR registers.
  * 
  * These macros define the register addresses for DDRA, DDRB, DDRC, and DDRD (Data Direction Registers).
  */
-#define DIO_DDRA_R         *((volatile u8*)0X3A)
-#define DIO_DDRB_R         *((volatile u8*)0X37)
-#define DIO_DDRC_R         *((volatile u8*)0X34)
-#define DIO_DDRD_R         *((volatile u8*)0X31)
+#define DIO_DDRA_R         (*((volatile u8*)0X3A))
+#define DIO_DDRB_R         (*((volatile u8*)0X37))
+#define DIO_DDRC_R         (*((volatile u8*)0X34))
+#define DIO_DDRD_R         (*((volatile u8*)0X31))
 
 /**
  * @brief Macro definitions for PIN registers.
  * 
  * These macros define the register addresses for PINA, PINB, PINC, and PIND (Input Pins Registers).
  */
-#define DIO_PINA_R         *((volatile u8*)0X39)
-#define DIO_PINB_R         *((volatile u8*)0X36)
-#define DIO_PINC_R         *((volatile u8*)0X33)
-#define DIO_PIND_R         *((volatile u8*)0X30)
+#define DIO_PINA_R         (*((volatile u8*)0X39))
+#define DIO_PINB_R         (*((volatile u8*)0X36))
+#define DIO_PINC_R         (*((volatile u8*)0X33))
+#define DIO_PIND_R         (*((volatile u8*)0X30))
 
 /**
  * @brief Macros for Pin Direction.

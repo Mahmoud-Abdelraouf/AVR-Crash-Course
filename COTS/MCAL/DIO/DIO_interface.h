@@ -1,7 +1,7 @@
 /****************************************************************/
 /******* Author    : Mahmoud Abdelraouf Mahmoud *****************/
 /******* Date      : 29 Sep 2023                *****************/
-/******* Version   : 0.2                        *****************/
+/******* Version   : 0.1                        *****************/
 /******* File Name : DIO_interface.h            *****************/
 /****************************************************************/
  #ifndef __DIO_INTERFACE_H_
@@ -13,7 +13,7 @@
  */
 
 /**< Macros for PORTS */
-#define DIO_PORTA     0 /**< Port A */
+#define DIO_PORTA     0 /**< Port A */         
 #define DIO_PORTB     1 /**< Port B */
 #define DIO_PORTC     2 /**< Port C */
 #define DIO_PORTD     3 /**< Port D */
@@ -55,16 +55,16 @@
  * @note You should call this function once at the beginning of your program to set up
  * the DIO ports and pins.
  */
-void DIO_voidInit(void);
+void DIO_vInit(void);
 
 /**
  * @brief Set the direction (input/output) of a specific pin in a given port.
  *
  * This function allows you to set the direction of a specific pin in a selected port.
  *
- * @param[in] Copy_PortId       The ID of the port (DIO_PORTA, DIO_PORTB, DIO_PORTC, or DIO_PORTD).
- * @param[in] Copy_PinId        The ID of the pin within the port (0-7).
- * @param[in] Copy_PinDirection The desired direction for the pin (DIO_OUTPUT or DIO_INPUT).
+ * @param[in] PortId       The ID of the port (DIO_PORTA, DIO_PORTB, DIO_PORTC, or DIO_PORTD).
+ * @param[in] PinId        The ID of the pin within the port (0-7).
+ * @param[in] PinDirection The desired direction for the pin (DIO_OUTPUT or DIO_INPUT).
  *
  * @return Std_ReturnType
  *   - E_OK     : The operation was successful, and the pin direction was set.
@@ -73,16 +73,16 @@ void DIO_voidInit(void);
  * @note You should call this function to configure the direction of a specific pin within a port.
  *       Use DIO_OUTPUT to set the pin as an output and DIO_INPUT to set it as an input.
  */
-Std_ReturnType DIO_SetPinDirection(u8 Copy_PortId, u8 Copy_PinId, u8 Copy_PinDirection);
+Std_ReturnType DIO_SetPinDirection(u8 PortId, u8 PinId, u8 PinDirection);
 
 /**
  * @brief Set the value (high/low) of a specific pin in a given port.
  *
  * This function allows you to set the value of a specific pin in a selected port.
  *
- * @param[in] Copy_PortId   The ID of the port (DIO_PORTA, DIO_PORTB, DIO_PORTC, or DIO_PORTD).
- * @param[in] Copy_PinId    The ID of the pin within the port (0-7).
- * @param[in] Copy_PinValue The desired value for the pin (DIO_HIGH or DIO_LOW).
+ * @param[in] PortId   The ID of the port (DIO_PORTA, DIO_PORTB, DIO_PORTC, or DIO_PORTD).
+ * @param[in] PinId    The ID of the pin within the port (0-7).
+ * @param[in] PinValue The desired value for the pin (DIO_HIGH or DIO_LOW).
  *
  * @return Std_ReturnType
  *   - E_OK     : The operation was successful, and the pin value was set.
@@ -91,7 +91,7 @@ Std_ReturnType DIO_SetPinDirection(u8 Copy_PortId, u8 Copy_PinId, u8 Copy_PinDir
  * @note You should call this function to set the value of a specific pin within a port.
  *       Use DIO_HIGH to set the pin value to high (logic 1) and DIO_LOW to set it to low (logic 0).
  */
-Std_ReturnType DIO_SetPinValue(u8 Copy_PortId, u8 Copy_PinId, u8 Copy_PinValue);
+Std_ReturnType DIO_SetPinValue(u8 PortId, u8 PinId, u8 PinValue);
 
 /**
  * @brief Get the value (high/low) of a specific pin in a given port.
