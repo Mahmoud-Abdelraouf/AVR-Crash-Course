@@ -148,52 +148,52 @@ Std_ReturnType DIO_SetPinValue(u8 PortId, u8 PinId,u8 PinValue)
 	return Local_FunctionStatus;
 }
 
-Std_ReturnType DIO_GetPinValue(u8 PortId, u8 PinId,u8 *Copy_ReturnedPinValue)
+Std_ReturnType DIO_GetPinValue(u8 PortId, u8 PinId,u8 *ReturnedPinValue)
 {
 	Std_ReturnType Local_FunctionStatus = E_OK;
 
-	if((PortId < 8) && (NULL != Copy_ReturnedPinValue))
+	if((PortId < 8) && (NULL != ReturnedPinValue))
 	{
 		switch (PortId)
 		{
-			case DIO_PORTA: *Copy_ReturnedPinValue = GET_BIT(DIO_PINA_R, PinId);
-				if(*Copy_ReturnedPinValue == 0)
+			case DIO_PORTA: *ReturnedPinValue = GET_BIT(DIO_PINA_R, PinId);
+				if(*ReturnedPinValue == 0)
 				{
-					*Copy_ReturnedPinValue = DIO_LOW;
+					*ReturnedPinValue = DIO_LOW;
 				}
 				else
 				{
-					*Copy_ReturnedPinValue = DIO_HIGH;
+					*ReturnedPinValue = DIO_HIGH;
 				}
 				break;
-			case DIO_PORTB: *Copy_ReturnedPinValue = GET_BIT(DIO_PINB_R, PinId);
-				if(*Copy_ReturnedPinValue == 0)
+			case DIO_PORTB: *ReturnedPinValue = GET_BIT(DIO_PINB_R, PinId);
+				if(*ReturnedPinValue == 0)
 				{
-					*Copy_ReturnedPinValue = DIO_LOW;
+					*ReturnedPinValue = DIO_LOW;
 				}
 				else
 				{
-					*Copy_ReturnedPinValue = DIO_HIGH;
+					*ReturnedPinValue = DIO_HIGH;
 				}
 				break;
-			case DIO_PORTC: *Copy_ReturnedPinValue = GET_BIT(DIO_PINC_R, PinId);
-				if(*Copy_ReturnedPinValue == 0)
+			case DIO_PORTC: *ReturnedPinValue = GET_BIT(DIO_PINC_R, PinId);
+				if(*ReturnedPinValue == 0)
 				{
-					*Copy_ReturnedPinValue = DIO_LOW;
+					*ReturnedPinValue = DIO_LOW;
 				}
 				else
 				{
-					*Copy_ReturnedPinValue = DIO_HIGH;
+					*ReturnedPinValue = DIO_HIGH;
 				}
 				break;
-			case DIO_PORTD: *Copy_ReturnedPinValue = GET_BIT(DIO_PIND_R, PinId);
-			if(*Copy_ReturnedPinValue == 0)
+			case DIO_PORTD: *ReturnedPinValue = GET_BIT(DIO_PIND_R, PinId);
+			if(*ReturnedPinValue == 0)
 			{
-				*Copy_ReturnedPinValue = DIO_LOW;
+				*ReturnedPinValue = DIO_LOW;
 			}
 			else
 			{
-				*Copy_ReturnedPinValue = DIO_HIGH;
+				*ReturnedPinValue = DIO_HIGH;
 			}
 			break;
 			default:
@@ -209,16 +209,16 @@ Std_ReturnType DIO_GetPinValue(u8 PortId, u8 PinId,u8 *Copy_ReturnedPinValue)
 	return Local_FunctionStatus;
 }
 
-Std_ReturnType DIO_SetPortDirection(u8 PortId, u8 Copy_PortDirection)
+Std_ReturnType DIO_SetPortDirection(u8 PortId, u8 PortDirection)
 {
 	Std_ReturnType Local_FunctionStatus = E_OK;
 
-	if(Copy_PortDirection == DIO_OUTPUT || Copy_PortDirection == DIO_INPUT)
+	if(PortDirection == DIO_OUTPUT || PortDirection == DIO_INPUT)
 	{
 		switch(PortId)
 		{
 			case DIO_PORTA:
-				switch(Copy_PortDirection)
+				switch(PortDirection)
 				{
 					case DIO_OUTPUT:DIO_DDRA_R = 0XFF; break;
 					case DIO_INPUT :DIO_DDRA_R = 0X00; break;
@@ -226,7 +226,7 @@ Std_ReturnType DIO_SetPortDirection(u8 PortId, u8 Copy_PortDirection)
 				}
 				break;
 			case DIO_PORTB:
-				switch(Copy_PortDirection)
+				switch(PortDirection)
 				{
 					case DIO_OUTPUT:DIO_DDRB_R = 0XFF; break;
 					case DIO_INPUT :DIO_DDRB_R = 0X00; break;
@@ -234,7 +234,7 @@ Std_ReturnType DIO_SetPortDirection(u8 PortId, u8 Copy_PortDirection)
 				}
 				break;
 			case DIO_PORTC:
-				switch(Copy_PortDirection)
+				switch(PortDirection)
 				{
 					case DIO_OUTPUT:DIO_DDRC_R = 0XFF; break;
 					case DIO_INPUT :DIO_DDRC_R = 0X00; break;
@@ -242,7 +242,7 @@ Std_ReturnType DIO_SetPortDirection(u8 PortId, u8 Copy_PortDirection)
 				}
 				break;
 			case DIO_PORTD:
-				switch(Copy_PortDirection)
+				switch(PortDirection)
 				{
 					case DIO_OUTPUT:DIO_DDRD_R = 0XFF; break;
 					case DIO_INPUT :DIO_DDRD_R = 0X00; break;
@@ -260,33 +260,33 @@ Std_ReturnType DIO_SetPortDirection(u8 PortId, u8 Copy_PortDirection)
 	return Local_FunctionStatus;
 }
 
-Std_ReturnType DIO_SetPortValue(u8 PortId, u8 Copy_PortValue)
+Std_ReturnType DIO_SetPortValue(u8 PortId, u8 PortValue)
 {
 	Std_ReturnType Local_FunctionStatus = E_OK;
 	switch(PortId)
 	{
-		case DIO_PORTA: DIO_PORTA_R = Copy_PortValue; break;
-		case DIO_PORTB: DIO_PORTB_R = Copy_PortValue; break;
-		case DIO_PORTC: DIO_PORTC_R = Copy_PortValue; break;
-		case DIO_PORTD: DIO_PORTD_R = Copy_PortValue; break;
+		case DIO_PORTA: DIO_PORTA_R = PortValue; break;
+		case DIO_PORTB: DIO_PORTB_R = PortValue; break;
+		case DIO_PORTC: DIO_PORTC_R = PortValue; break;
+		case DIO_PORTD: DIO_PORTD_R = PortValue; break;
 		default: Local_FunctionStatus = E_NOT_OK; break;
 	}
 
 	return Local_FunctionStatus;
 }
 
-Std_ReturnType DIO_GetPortValue(u8 Copy_u8portId, u8 *Copy_ReturnedPortValue)
+Std_ReturnType DIO_GetPortValue(u8 Copy_u8portId, u8 *ReturnedPortValue)
 {
 	Std_ReturnType Local_FunctionStatus = E_OK;
 
-	if(NULL != Copy_ReturnedPortValue)
+	if(NULL != ReturnedPortValue)
 	{
 		switch(Copy_u8portId)
 		{
-			case DIO_PORTA: *Copy_ReturnedPortValue = DIO_PINA_R; break;
-			case DIO_PORTB: *Copy_ReturnedPortValue = DIO_PINB_R; break;
-			case DIO_PORTC: *Copy_ReturnedPortValue = DIO_PINC_R; break;
-			case DIO_PORTD: *Copy_ReturnedPortValue = DIO_PIND_R; break;
+			case DIO_PORTA: *ReturnedPortValue = DIO_PINA_R; break;
+			case DIO_PORTB: *ReturnedPortValue = DIO_PINB_R; break;
+			case DIO_PORTC: *ReturnedPortValue = DIO_PINC_R; break;
+			case DIO_PORTD: *ReturnedPortValue = DIO_PIND_R; break;
 			default: Local_FunctionStatus = E_NOT_OK;
 		}
 	}
