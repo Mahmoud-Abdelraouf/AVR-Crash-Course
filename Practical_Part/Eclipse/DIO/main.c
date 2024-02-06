@@ -2,7 +2,7 @@
  * main.c
  *
  *  Created on: Feb 5, 2024
- *      Author: karim
+ *      Author: Mahmoud Abdelraouf
  */
 
 /**< LIB */
@@ -10,6 +10,7 @@
 #include "BIT_MATH.h"
 /**< MCAL */
 #include "DIO_interface.h"
+#include <util/delay.h>
 
 /**< APP */
 int main(void) {
