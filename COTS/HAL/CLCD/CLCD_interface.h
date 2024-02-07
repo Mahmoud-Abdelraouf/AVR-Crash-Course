@@ -7,8 +7,6 @@
 #ifndef CLCD_INTERFACE_H
 #define CLCD_INTERFACE_H
 
-
-
 /**
  * @brief Enum defining LCD operation modes.
  */
@@ -80,6 +78,57 @@ void LCD_SendChar(const LCD_Config_t *config, uint8_t character);
  */
 void LCD_SendString(const LCD_Config_t *config, const uint8_t *string);
 
+/**
+ * @brief Displays a double-precision floating-point number on the LCD.
+ *
+ * This function displays a double-precision floating-point number on the LCD based on
+ * the provided configuration. It separates the integer and fractional parts of the number,
+ * displays the integer part directly, and then displays the fractional part with three decimal
+ * places using LCD_SendChar function.
+ *
+ * @param[in] config Pointer to the LCD configuration structure.
+ * @param[in] number The double-precision floating-point number to be displayed on the LCD.
+ * @note This function assumes that the required LCD character functions have been initialized separately.
+ */
+void LCD_SendNumber(const LCD_Config_t *config, double number);
+
+/**
+ * @brief Displays the integer part of a signed integer on the LCD.
+ *
+ * This function displays the integer part of a signed integer value on the LCD based on
+ * the provided configuration. It separates the digits of the integer part and displays
+ * them sequentially using the LCD_SendChar function.
+ *
+ * @param[in] config Pointer to the LCD configuration structure.
+ * @param[in] number The signed integer value whose integer part is to be displayed on the LCD.
+ * @note This function assumes that the required LCD character functions have been initialized separately.
+ */
+void LCD_SendIntegerPart(const LCD_Config_t *config, s32 number);
+
+/**
+ * @brief Clears the display of the LCD.
+ *
+ * This function sends a command to the LCD module based on the provided configuration
+ * to clear the display content and reset the cursor to the home position (the first row
+ * and the first column).
+ *
+ * @param[in] config Pointer to the LCD configuration structure.
+ * @note This function assumes that the required LCD command functions have been initialized separately.
+ */
+void LCD_Clear(const LCD_Config_t *config);
+
+/**
+ * @brief Moves the cursor of the LCD to a specific position.
+ *
+ * This function moves the cursor of the LCD module based on the provided coordinates
+ * (x and y) within the screen bounds specified by the LCD configuration.
+ *
+ * @param[in] config Pointer to the LCD configuration structure.
+ * @param[in] x The x-coordinate (row) on the LCD (0 or 1 for a two-row display).
+ * @param[in] y The y-coordinate (column) on the LCD (0 to 15 for a 16-column display).
+ * @note This function assumes that the required LCD command functions have been initialized separately.
+ */
+void LCD_GoToXYPos(const LCD_Config_t *config, uint8_t x, uint8_t y);
 
 #endif /**< CLCD_INTERFACE_H */
 
