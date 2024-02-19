@@ -4,8 +4,8 @@
 /******* Version   : 0.1                        *****************/
 /******* File Name : DIO_config.h               *****************/
 /****************************************************************/
-#ifndef __DIO_CONFIG_H_
-#define __DIO_CONFIG_H_
+#ifndef ATMEGA32_DIO_CONFIG_H_
+#define ATMEGA32_DIO_CONFIG_H_
 
 /**
  * @brief Initial Direction Options for All Pins
@@ -110,4 +110,4 @@
 #define DIO_PD7_INITIAL_VALUE   DIO_OUTPUT_LOW  
 
 
-#endif /**< __DIO_CONFIG_H_ */
+#endif /**< ATMEGA32_DIO_CONFIG_H_ */

@@ -13,7 +13,7 @@
 #include "DIO_private.h"
 #include "DIO_config.h"
 
-
+/*****************************< Function Implementations *****************************/
 void DIO_vInit(void)
 {
 	/**< Configure the data direction registers (DDRx) */ 

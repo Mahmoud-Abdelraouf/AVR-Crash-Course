@@ -4,8 +4,8 @@
 /******* Version   : 0.1                        *****************/
 /******* File Name : DIO_private.h              *****************/
 /****************************************************************/
-#ifndef __DIO_PRIVATE_H_
-#define __DIO_PRIVATE_H_
+#ifndef ATMEGA32_DIO_PRIVATE_H_
+#define ATMEGA32_DIO_PRIVATE_H_
 
 /**
  * @brief Macro definitions for PORT registers.
@@ -69,4 +69,4 @@
 #define Conc(b7,b6,b5,b4,b3,b2,b1,b0)            Conc_Help(b7,b6,b5,b4,b3,b2,b1,b0)
 #define Conc_Help(b7,b6,b5,b4,b3,b2,b1,b0)        0b##b7##b6##b5##b4##b3##b2##b1##b0
 
-#endif /* __DIO_PRIVATE_H_ */
+#endif /* ATMEGA32_DIO_PRIVATE_H_ */

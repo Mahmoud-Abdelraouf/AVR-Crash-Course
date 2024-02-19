@@ -4,8 +4,8 @@
 /******* Version   : 0.1                        *****************/
 /******* File Name : DIO_interface.h            *****************/
 /****************************************************************/
- #ifndef __DIO_INTERFACE_H_
- #define __DIO_INTERFACE_H_
+ #ifndef ATMEGA32_DIO_INTERFACE_H_
+ #define ATMEGA32_DIO_INTERFACE_H_
 
 /**
  * @addtogroup DIO_Macros Digital I/O (DIO) Macros
@@ -168,4 +168,4 @@ Std_ReturnType DIO_GetPortValue(u8 Copy_u8portId, u8 *Copy_ReturnedPortValue);
  */
 
 
-#endif /**< __DIO_INTERFACE_H_ */
+#endif /**< ATMEGA32_DIO_INTERFACE_H_ */
