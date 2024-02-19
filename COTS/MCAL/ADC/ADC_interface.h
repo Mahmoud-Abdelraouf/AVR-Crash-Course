@@ -2,7 +2,7 @@
 /******* Author    : Mahmoud Abdelraouf Mahmoud *****************/
 /******* Date      : 19 Feb 2024                *****************/
 /******* Version   : 0.1                        *****************/
-/******* File Name : ADC_private.h              *****************/
+/******* File Name : ADC_interface.h             *****************/
 /****************************************************************/
 #ifndef ATMEGA32_ADC_INTERFACE_H_
 #define ATMEGA32_ADC_INTERFACE_H_
@@ -77,6 +77,7 @@
  * and the ADC Control and Status Register A (ADCSRA) to configure the ADC settings.
  */
 void ADC_vInit(void);
+
 /**
  * @brief Synchronously gets the digital value from the ADC for the specified channel without blocking.
  *
@@ -88,6 +89,7 @@ void ADC_vInit(void);
  * @return Std_ReturnType E_OK if the operation was successful, E_NOT_OK otherwise.
  */
 Std_ReturnType ADC_GetDigitalValueSynchNonBlocking(u8 ChannelNb, u16 *DigitalValue);
+
 /**
  * @brief Asynchronously starts an ADC conversion for the specified channel with a callback function.
  *

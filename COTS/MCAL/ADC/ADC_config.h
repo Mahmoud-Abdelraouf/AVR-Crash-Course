@@ -2,7 +2,7 @@
 /******* Author    : Mahmoud Abdelraouf Mahmoud *****************/
 /******* Date      : 19 Feb 2024                *****************/
 /******* Version   : 0.1                        *****************/
-/******* File Name : ADC_private.h              *****************/
+/******* File Name : ADC_config.h               *****************/
 /****************************************************************/
 #ifndef ATMEGA32_ADC_CONFIG_H_
 #define ATMEGA32_ADC_CONFIG_H_

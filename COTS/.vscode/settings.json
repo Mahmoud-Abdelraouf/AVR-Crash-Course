@@ -59,7 +59,11 @@
   "files.associations": {
     "adc_private.h": "c",
     "adc_interface.h": "c",
-    "bit_math.h": "c"
+    "bit_math.h": "c",
+    "std_types.h": "c",
+    "gie_interface.h": "c",
+    "gie_private.h": "c",
+    "gie_config.h": "c"
   },
   "cSpell.words": [
     "ADCH",
