@@ -63,7 +63,10 @@
     "std_types.h": "c",
     "gie_interface.h": "c",
     "gie_private.h": "c",
-    "gie_config.h": "c"
+    "gie_config.h": "c",
+    "exti_private.h": "c",
+    "exti_config.h": "c",
+    "exti_interface.h": "c"
   },
   "cSpell.words": [
     "ADCH",

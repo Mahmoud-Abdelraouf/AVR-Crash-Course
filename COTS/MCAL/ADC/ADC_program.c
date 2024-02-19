@@ -125,8 +125,7 @@ Std_ReturnType ADC_GetADCRegValue(u16 *ADCValue) {
 
     return Local_ErrorStatus;
 }
-
-
+/*****************************< INTERRUPT SERVICE ROUTINE SECTION *****************************/
 /**
  * @brief ADC Interrupt Service Routine (ISR) prototype.
  *
@@ -149,7 +148,7 @@ void __vector_16(void) {
         /**< Clear ADC Interrupt Enable */
         CLR_BIT(ADC_ADCSRA_REG, 3);
         /**< Call the notification function */
-        ADC_pfNotification(ADC_ADC_REG);
+        callback(ADC_ADC_REG);
     }
 }
 

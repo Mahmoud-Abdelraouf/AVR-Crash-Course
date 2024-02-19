@@ -12,7 +12,6 @@
 #include "DIO_interface.h"
 #include "DIO_private.h"
 #include "DIO_config.h"
-
 /*****************************< Function Implementations *****************************/
 void DIO_vInit(void)
 {
