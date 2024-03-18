@@ -66,10 +66,15 @@
     "gie_config.h": "c",
     "exti_private.h": "c",
     "exti_config.h": "c",
-    "exti_interface.h": "c"
+    "exti_interface.h": "c",
+    "kpd_interface.h": "c",
+    "kpd_private.h": "c",
+    "kpd_config.h": "c",
+    "dio_interface.h": "c"
   },
   "cSpell.words": [
     "ADCH",
     "ATMEGA"
-  ]
+  ],
+  "C_Cpp.errorSquiggles": "enabled"
 }

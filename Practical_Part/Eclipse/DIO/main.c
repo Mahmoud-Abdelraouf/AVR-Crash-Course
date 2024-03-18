@@ -15,11 +15,20 @@
 /**< APP */
 int main(void) {
 	/**< voidInit */
-	DIO_SetPinDirection(DIO_PORTA, DIO_PIN2, DIO_OUTPUT);
+	DIO_SetPinDirection(DIO_PORTC, DIO_PIN1, DIO_OUTPUT);
 
-	DIO_SetPinValue(DIO_PORTA, DIO_PIN2, DIO_HIGH);
+
 	/**< super loop */
-	while(1);
+	while(1) {
+		DIO_SetPinValue(DIO_PORTC, DIO_PIN1, DIO_HIGH);
+
+		_delay_ms(500);
+
+		DIO_SetPinValue(DIO_PORTC, DIO_PIN1, DIO_LOW);
+
+		_delay_ms(500);
+
+	}
 
 
 }

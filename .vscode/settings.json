@@ -58,6 +58,13 @@
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
     "clcd_config.h": "c",
-    "clcd_interface.h": "c"
+    "clcd_interface.h": "c",
+    "bit_math.h": "c",
+    "std_types.h": "c",
+    "kpd_interface.h": "c",
+    "kpd_config.h": "c",
+    "dio_interface.h": "c",
+    "kpd_private.h": "c",
+    "stdint.h": "c"
   }
 }
