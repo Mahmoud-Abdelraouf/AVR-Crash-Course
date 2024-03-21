@@ -26,13 +26,13 @@ const u8 KPD_Keys[4][4] = KPD_KEYS;
  * @brief Array representing the pins connected to the rows of the keypad.
  * Users need to specify the corresponding pins in the order of physical connection.
  */
-const u8 KPD_Au8rowsPins[4] = {KPD_R1_PIN, KPD_R2_PIN, KPD_R3_PIN, KPD_R4_PIN};
+const u8 KPD_rowsPins[4] = {KPD_R1_PIN, KPD_R2_PIN, KPD_R3_PIN, KPD_R4_PIN};
 
 /**
  * @brief Array representing the pins connected to the columns of the keypad.
  * Users need to specify the corresponding pins in the order of physical connection.
  */
-const u8 KPD_Au8colsPins[4] = {KPD_C1_PIN, KPD_C2_PIN, KPD_C3_PIN, KPD_C4_PIN};
+const u8 KPD_colsPins[4] = {KPD_C1_PIN, KPD_C2_PIN, KPD_C3_PIN, KPD_C4_PIN};
 /*****************************< Function Implementations *****************************/
 Std_ReturnType KPD_GetKeyState(u8 *returnedKey) 
 {
@@ -46,21 +46,21 @@ Std_ReturnType KPD_GetKeyState(u8 *returnedKey)
         /**< Active Each Row => For loop on pins of the rows */
         for (rowsCounter = 0; rowsCounter < 4; rowsCounter++) /**< Loop through each row */
         {
-            DIO_SetPinValue(KPD_ROWS_PORT, KPD_Keys[rowsCounter], DIO_LOW); /**< Activate the current row */
+            DIO_SetPinValue(KPD_ROWS_PORT, KPD_rowsPins[rowsCounter], DIO_LOW); /**< Activate the current row */
             
             /**< Check which input pin has a low value (i.e., which key is pressed) */
             for (colsCounter = 0; colsCounter < 4; colsCounter++) /**< Loop through each column */
             {
-                DIO_GetPinValue(KPD_COLS_PORT, KPD_Keys[colsCounter], &pinValue); /**< Read the value of the current column pin */
+                DIO_GetPinValue(KPD_COLS_PORT, KPD_colsPins[colsCounter], &pinValue); /**< Read the value of the current column pin */
                 if (pinValue == DIO_LOW) /**< Check if the pin value is low */
                 {
                     /**< Debouncing */
-                    _delay_ms(20); /**< Delay for debouncing */
-                    DIO_GetPinValue(KPD_COLS_PORT, KPD_Keys[colsCounter], &pinValue); /**< Get pin value again */
+                    //_delay_ms(20); /**< Delay for debouncing */
+                    DIO_GetPinValue(KPD_COLS_PORT, KPD_colsPins[colsCounter], &pinValue); /**< Get pin value again */
                     /**< check if the pin is still equal low */
                     while (pinValue == DIO_LOW) /**< Wait until the pin value becomes high (debounced) */
                     {
-                        DIO_GetPinValue(KPD_COLS_PORT, KPD_Keys[colsCounter], &pinValue); /**< Get pin value */
+                        DIO_GetPinValue(KPD_COLS_PORT, KPD_colsPins[colsCounter], &pinValue); /**< Get pin value */
                     }
                     *returnedKey = KPD_Keys[rowsCounter][colsCounter]; /**< Store the pressed key */
                     flag = 1; /**< Set flag to indicate that a key is pressed */
@@ -68,11 +68,12 @@ Std_ReturnType KPD_GetKeyState(u8 *returnedKey)
                 }
             }
             
-            /**< Deactivate Rows */
-            DIO_SetPinValue(KPD_ROWS_PORT, KPD_Au8rowsPins[rowsCounter], DIO_HIGH); /**< Deactivate the current row */
-            
             if (flag == 1) /**< Check if a key is pressed */
             {
+            	/**< Deactivate Rows */
+				DIO_SetPinValue(KPD_ROWS_PORT, KPD_rowsPins[rowsCounter], DIO_HIGH); /**< Deactivate the current row */
+
+            	FunctionState = E_OK;
                 break; /**< Exit the loop */
             }
         }

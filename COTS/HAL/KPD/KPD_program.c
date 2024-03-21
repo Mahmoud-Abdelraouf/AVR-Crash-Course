@@ -26,13 +26,13 @@ const u8 KPD_Keys[4][4] = KPD_KEYS;
  * @brief Array representing the pins connected to the rows of the keypad.
  * Users need to specify the corresponding pins in the order of physical connection.
  */
-const u8 KPD_Au8rowsPins[4] = {KPD_R1_PIN, KPD_R2_PIN, KPD_R3_PIN, KPD_R4_PIN};
+const u8 KPD_rowsPins[4] = {KPD_R1_PIN, KPD_R2_PIN, KPD_R3_PIN, KPD_R4_PIN};
 
 /**
  * @brief Array representing the pins connected to the columns of the keypad.
  * Users need to specify the corresponding pins in the order of physical connection.
  */
-const u8 KPD_Au8colsPins[4] = {KPD_C1_PIN, KPD_C2_PIN, KPD_C3_PIN, KPD_C4_PIN};
+const u8 KPD_colsPins[4] = {KPD_C1_PIN, KPD_C2_PIN, KPD_C3_PIN, KPD_C4_PIN};
 /*****************************< Function Implementations *****************************/
 Std_ReturnType KPD_GetKeyState(u8 *returnedKey) 
 {

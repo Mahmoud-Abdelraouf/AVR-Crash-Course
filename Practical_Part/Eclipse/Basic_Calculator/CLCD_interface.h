@@ -36,6 +36,32 @@ typedef struct {
 } LCD_Config_t;
 
 /**
+ * @brief Initializes the LCD module.
+ *
+ * This function initializes the LCD module according to the provided configuration.
+ * It sets the direction of control pins (enable, rs, rw) and data pins based on the
+ * mode specified in the configuration.
+ *
+ * Example usage:
+ * @code
+ * LCD_Config_t lcd1;
+ * lcd1.mode = LCD_4BitMode;
+ * for (u8 i = 0; i < 4; i++) {
+ *     lcd1.dataPins[i].LCD_PortId = DIO_PORTA;
+ *     lcd1.dataPins[i].LCD_PinId = DIO_PIN3 - i;
+ * }
+ * lcd1.enablePin.LCD_PortId = DIO_PORTA;
+ * lcd1.enablePin.LCD_PinId = DIO_PIN4;
+ * lcd1.rsPin.LCD_PortId = DIO_PORTA;
+ * lcd1.rsPin.LCD_PinId = DIO_PIN5;
+ * LCD_Init(&lcd1);
+ * @endcode
+ *
+ * @param config Pointer to the configuration structure containing initialization parameters.
+ */
+void LCD_Init(const LCD_Config_t *config);
+
+/**
  * @brief Sends a command to the LCD module.
  *
  * This function sends a command to the LCD module based on the provided configuration.
