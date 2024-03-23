@@ -129,7 +129,7 @@ void LCD_SendNumber(const LCD_Config_t *config, double number);
  * @param[in] number The signed integer value whose integer part is to be displayed on the LCD.
  * @note This function assumes that the required LCD character functions have been initialized separately.
  */
-void LCD_SendIntegerPart(const LCD_Config_t *config, s32 number);
+void LCD_SendIntegerNumber(const LCD_Config_t *config, s32 number);
 
 /**
  * @brief Clears the display of the LCD.
@@ -150,8 +150,8 @@ void LCD_Clear(const LCD_Config_t *config);
  * (x and y) within the screen bounds specified by the LCD configuration.
  *
  * @param[in] config Pointer to the LCD configuration structure.
- * @param[in] x The x-coordinate (row) on the LCD (0 or 1 for a two-row display).
- * @param[in] y The y-coordinate (column) on the LCD (0 to 15 for a 16-column display).
+ * @param[in] x The x-coordinate (column) on the LCD (0 to 15 for a 16-column display).
+ * @param[in] y The y-coordinate (row) on the LCD (0 or 1 for a two-row display).
  * @note This function assumes that the required LCD command functions have been initialized separately.
  */
 void LCD_GoToXYPos(const LCD_Config_t *config, uint8_t x, uint8_t y);

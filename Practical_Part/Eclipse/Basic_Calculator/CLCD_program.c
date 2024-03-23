@@ -120,7 +120,7 @@ void LCD_SendString(const LCD_Config_t *config, const uint8_t *string)
     }
 }
 
-void LCD_SendIntegerPart(const LCD_Config_t *config, s32 number) {
+void LCD_SendIntegerNumber(const LCD_Config_t *config, s32 number) {
     u8 Local_Integer[11] = {0};
     s8 Local_Counter = 0;
 
@@ -149,7 +149,7 @@ void LCD_SendNumber(const LCD_Config_t *config, double number) {
     /**< Display integer part */ 
     u32 integerPart = (u32)number;
 
-    LCD_SendIntegerPart(config, (s32)integerPart); // Function to handle integer part
+    LCD_SendIntegerNumber(config, (s32)integerPart); // Function to handle integer part
 
     /**< Display decimal point */ 
     LCD_SendChar(config, '.');
