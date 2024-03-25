@@ -86,7 +86,7 @@ int main(void) {
     // Variable to store the first and second operands
     int firstOperand = 0, secondOperand = 0;
 
-    // Loop indefinitely
+    /*****************************< Loop indefinitely *****************************/
     while (1) {
         // Check if a key is pressed
         if (KPD_GetKeyState(&pressedKey) == E_OK) {
