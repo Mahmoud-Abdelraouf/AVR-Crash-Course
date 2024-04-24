@@ -15,14 +15,6 @@
 #include "EXTI_config.h"
 /*****************************< callback interface *****************************/
 /**
- * @brief Typedefinition for a function pointer with no parameters and void return type.
- *
- * This typedef defines a function pointer type for functions that take no parameters
- * and return void.
- */
-typedef void (*EXTI_NotificationCallback_t)(void);
-
-/**
  * @brief Global callback function pointer.
  *
  * This variable serves as a global function pointer for functions that match the

@@ -9,6 +9,14 @@
 
 /*****************************< MACROS *****************************/
 /**
+ * @brief Typedefinition for a function pointer with no parameters and void return type.
+ *
+ * This typedef defines a function pointer type for functions that take no parameters
+ * and return void.
+ */
+typedef void (*EXTI_NotificationCallback_t)(void);
+
+/**
  * @brief Macro definition for external interrupt index 0 (EXTI_INT0).
  *
  * This macro defines the index for external interrupt 0 (INT0).

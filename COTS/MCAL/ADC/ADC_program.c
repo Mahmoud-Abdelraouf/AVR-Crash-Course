@@ -13,14 +13,6 @@
 #include "ADC_private.h"
 #include "ADC_config.h"
 /*****************************< callback interface *****************************/
-/**
- * @brief Function pointer type for ADC notification callback.
- *
- * This typedef defines a function pointer type for the ADC notification callback function.
- * The callback function takes a single parameter, which is the ADC result (16-bit unsigned integer).
- */
-typedef void (*ADC_NotificationCallback_t)(uint16_t);
-
 /**< Create an instance of the ADC notification callback function */
 ADC_NotificationCallback_t callback = NULL;
 

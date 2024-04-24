@@ -8,6 +8,14 @@
 #define ATMEGA32_ADC_INTERFACE_H_
 
 /**
+ * @brief Function pointer type for ADC notification callback.
+ *
+ * This typedef defines a function pointer type for the ADC notification callback function.
+ * The callback function takes a single parameter, which is the ADC result (16-bit unsigned integer).
+ */
+typedef void (*ADC_NotificationCallback_t)(uint16_t);
+
+/**
  * @brief Macro defining ADC channel 1.
  *
  * This macro represents ADC channel 1, which corresponds to the physical pin PA1 on the ATmega32.
