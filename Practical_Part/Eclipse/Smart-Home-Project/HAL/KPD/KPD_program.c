@@ -34,7 +34,7 @@ const u8 KPD_rowsPins[4] = {KPD_R1_PIN, KPD_R2_PIN, KPD_R3_PIN, KPD_R4_PIN};
  */
 const u8 KPD_colsPins[4] = {KPD_C1_PIN, KPD_C2_PIN, KPD_C3_PIN, KPD_C4_PIN};
 /*****************************< Function Implementations *****************************/
-Std_ReturnType KPD_GetKeyState(uint8_t *returnedKey)
+Std_ReturnType KPD_GetKeyState(u8 *returnedKey) 
 {
     Std_ReturnType FunctionState = E_NOT_OK; /**< Initialize function state to "not OK" */
     u8 rowsCounter = 0, colsCounter = 0, pinValue = 0, flag = 0; /**< Initialize loop counters and pin value */
@@ -68,11 +68,11 @@ Std_ReturnType KPD_GetKeyState(uint8_t *returnedKey)
                 }
             }
             
-            /**< Deactivate Rows */
-			DIO_SetPinValue(KPD_ROWS_PORT, KPD_rowsPins[rowsCounter], DIO_HIGH); /**< Deactivate the current row */
-            
             if (flag == 1) /**< Check if a key is pressed */
             {
+            	/**< Deactivate Rows */
+				DIO_SetPinValue(KPD_ROWS_PORT, KPD_rowsPins[rowsCounter], DIO_HIGH); /**< Deactivate the current row */
+
             	FunctionState = E_OK;
                 break; /**< Exit the loop */
             }
